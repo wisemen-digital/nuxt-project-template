@@ -1,5 +1,7 @@
 # [Nuxt3](https://nuxt.com/docs/getting-started/introduction) Project Template
 
+Welcome to Wisemen's Nuxt3 project template. This template is designed to help you quickly set up and start developing your Nuxt3 applications. It comes pre-configured with several essential packages like PNPM for package management, AntFu ESLINT for code formatting, @nuxtjs/i18n for internationalization, and @nuxtjs/tailwindcss for styling. Follow the instructions below to set up the project, run it locally, build it, and check for linting errors. Happy coding!
+
 ## Setup a project
 Install the packages as following:
 ```bash
