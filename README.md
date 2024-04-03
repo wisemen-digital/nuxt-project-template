@@ -60,6 +60,7 @@ NUXT_PUBLIC_BASE_URL=http://localhost:3000
 You can change the `BASE_URL` to a development API url for testing/implementing. If you want to add more environment variables make sure to include them in `nuxt.config.ts` under `runtimeConfig`
 
 ```bash
+# nuxt.config.ts
   runtimeConfig: {
     public: {
       BASE_URL: '',
