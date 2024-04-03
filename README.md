@@ -1,7 +1,5 @@
 # [Nuxt3](https://nuxt.com/docs/getting-started/introduction) Project Template
 
-<br>
-
 ## Setup a project
 Install the packages as following:
 ```bash
