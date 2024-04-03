@@ -46,7 +46,7 @@ You can change the `BASE_URL` to a development API url for testing/implementing.
 
 ## Project Packages / Stack
 
-### Each package has a link to useful documentation
+Each package has a link to useful documentation
 
 | Category | Package |
 | --- | --- |
