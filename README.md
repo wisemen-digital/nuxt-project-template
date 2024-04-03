@@ -1,8 +1,10 @@
 # Nuxt 3 Project Template
 
 [Nuxt 3 Official documentation](https://nuxt.com/docs/getting-started/introduction)
+
 <br>
 <br>
+
 ## Setup
 Install the packages as following:
 ```bash
@@ -32,14 +34,17 @@ pnpm run lint:fix
 ```
 <br>
 <br>
+
 ## Environment variables
 Use the `.env.example` file as a template
 ```bash
 NUXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 You can change the `BASE_URL` to a development API url for testing/implementing.
+
 <br>
 <br>
+
 ## Techstack
 
 | Category | Package |
