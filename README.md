@@ -3,38 +3,38 @@
 [Nuxt 3 Official documentation](https://nuxt.com/docs/getting-started/introduction)
 
 ## Setup
-### Install the packages as following:
+Install the packages as following:
 ```bash
 pnpm install
 ```
 
-### Run locally
+Run locally
 ```bash
 pnpm run dev
 ```
 
-### Build
+Build
 ```bash
 pnpm run build
 ```
 
 ## Linting
-### Check for linting errors:
+Check for linting errors:
 ```bash
 pnpm run lint
 ```
 
-### Autofix linting errors:
+Autofix linting errors:
 ```bash
 pnpm run lint:fix
 ```
 
 ## Environment variables
-### Use the `.env.example` file as a template
+Use the `.env.example` file as a template
 ```bash
 NUXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
-### You can change the `BASE_URL` to a development API url for testing/implementing.
+You can change the `BASE_URL` to a development API url for testing/implementing.
 
 ## Techstack
 
