@@ -1,8 +1,6 @@
 # [Nuxt3](https://nuxt.com/docs/getting-started/introduction) Project Template
 
-Welcome. This template is designed to help you quickly set up and start developing your Nuxt3 applications.
-<br>
-It comes pre-configured with several essential packages.
+Welcome. This template is designed to help you quickly set up and start developing your Nuxt3 applications. It comes pre-configured with several essential packages to make your life easier.
 <br>
 <br>
 Happy coding!
@@ -19,6 +17,7 @@ Happy coding!
 <br>
 
 ## <a name="getting-started">Getting Started</a>
+
 Install the packages as following:
 ```bash
 pnpm install
@@ -37,6 +36,7 @@ pnpm run build
 <br>
 
 ## <a name="linting">Linting</a>
+
 Check for linting errors:
 ```bash
 pnpm run lint
@@ -50,11 +50,14 @@ pnpm run lint:fix
 <br>
 
 ## <a name="env-variables">Environment Variables</a>
+
 Use the `.env.example` file as a template
+
 ```bash
 NUXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
-You can change the `BASE_URL` to a development API url for testing/implementing.
+
+You can change the `BASE_URL` to a development API url for testing/implementing. If you want to add more environment variables make sure to include them in nuxt.config.ts under `runtimeConfig`
 
 <br>
 
