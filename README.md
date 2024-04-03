@@ -1,6 +1,11 @@
 # [Nuxt3](https://nuxt.com/docs/getting-started/introduction) Project Template
 
-Welcome. This template is designed to help you quickly set up and start developing your Nuxt3 applications. It comes pre-configured with several essential packages.
+Welcome.
+<br>
+This template is designed to help you quickly set up and start developing your Nuxt3 applications.
+<br>
+It comes pre-configured with several essential packages.
+<br>
 <br>
 Happy coding!
 
@@ -10,6 +15,8 @@ Happy coding!
 - 📖 [Linting](#linting)
 - 🏠 [Environment Variables](#env-variables)
 - 🧩 [Packages / Stack](#packages)
+
+<br>
 
 ## <a name="getting-started">Getting Started</a>
 Install the packages as following:
