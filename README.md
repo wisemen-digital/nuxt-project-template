@@ -3,7 +3,6 @@
 [Nuxt 3 Official documentation](https://nuxt.com/docs/getting-started/introduction)
 
 <br>
-<br>
 
 ## Setup
 Install the packages as following:
@@ -20,8 +19,9 @@ Build
 ```bash
 pnpm run build
 ```
+
 <br>
-<br>
+
 ## Linting
 Check for linting errors:
 ```bash
@@ -42,7 +42,6 @@ NUXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 You can change the `BASE_URL` to a development API url for testing/implementing.
 
-<br>
 <br>
 
 ## Techstack
