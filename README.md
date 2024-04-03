@@ -1,10 +1,8 @@
-# Nuxt 3 Project Template
-
-[Nuxt 3 Official documentation](https://nuxt.com/docs/getting-started/introduction)
+# [Nuxt3](https://nuxt.com/docs/getting-started/introduction) Project Template
 
 <br>
 
-## Setup
+## Setup a project
 Install the packages as following:
 ```bash
 pnpm install
