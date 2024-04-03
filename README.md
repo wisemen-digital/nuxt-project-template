@@ -61,6 +61,7 @@ You can change the `BASE_URL` to a development API url for testing/implementing.
 
 ```bash
 # nuxt.config.ts
+
   runtimeConfig: {
     public: {
       BASE_URL: '',
