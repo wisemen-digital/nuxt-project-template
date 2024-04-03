@@ -38,13 +38,15 @@ You can change the `BASE_URL` to a development API url for testing/implementing.
 
 ## Techstack
 
-Packages: `PNPM`
-Formatting: [AntFu ESLINT](https://github.com/antfu/eslint-config)
-i18n: [@nuxtjs/i18n](https://i18n.nuxtjs.org/docs/getting-started) with customRoutePaths (locales folder)
-CSS: [@nuxtjs/tailwindcss](https://tailwindcss.nuxtjs.org/getting-started/configuration)
-Validation: [Zod](https://zod.dev/)
-Animations: [GSAP](https://gsap.com/docs/v3/)
-Sliders: [Keen Slider](https://keen-slider.io/docs) / [SwiperJS](https://swiperjs.com/vue) (If need for complicated sliders)
-Auth: Self-written
-State: [Nuxt useState](https://nuxt.com/docs/api/composables/use-state) / [Pinia](https://pinia.vuejs.org/ssr/nuxt.html)
-Data Fetching: [Custom API plugin → useAPI composable](https://notes.atinux.com/nuxt-custom-fetch)
+| Category | Package |
+| --- | --- |
+| Packages | [PNPM](https://pnpm.io/) |
+| Formatting | [AntFu ESLINT](https://github.com/antfu/eslint-config) |
+| i18n | [@nuxtjs/i18n](https://i18n.nuxtjs.org/docs/getting-started) with customRoutePaths (locales folder) |
+| CSS | [@nuxtjs/tailwindcss](https://tailwindcss.nuxtjs.org/getting-started/configuration) |
+| Validation | [Zod](https://zod.dev/) |
+| Animations | [GSAP](https://gsap.com/docs/v3/) |
+| Sliders | [Keen Slider](https://keen-slider.io/docs) / [SwiperJS](https://swiperjs.com/vue) (If need for complicated sliders) |
+| Auth | Self-written |
+| State | [Nuxt useState](https://nuxt.com/docs/api/composables/use-state) / [Pinia](https://pinia.vuejs.org/ssr/nuxt.html) |
+| Data Fetching | [Custom API plugin → useAPI composable](https://notes.atinux.com/nuxt-custom-fetch) |
