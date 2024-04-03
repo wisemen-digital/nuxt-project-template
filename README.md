@@ -1,8 +1,17 @@
 # [Nuxt3](https://nuxt.com/docs/getting-started/introduction) Project Template
 
-Welcome to Wisemen's Nuxt3 project template. This template is designed to help you quickly set up and start developing your Nuxt3 applications. It comes pre-configured with several essential packages like PNPM for package management, AntFu ESLINT for code formatting, @nuxtjs/i18n for internationalization, and @nuxtjs/tailwindcss for styling. Follow the instructions below to set up the project, run it locally, build it, and check for linting errors. Happy coding!
+Welcome. This template is designed to help you quickly set up and start developing your Nuxt3 applications. It comes pre-configured with several essential packages.
+<br>
+Happy coding!
 
-## Setup a project
+### Table of Contents
+
+- 🚀 [Getting Started](#getting-started)
+- 📖 [Linting](#linting)
+- 🏠 [Environment Variables](#env-variables)
+- 🧩 [Packages / Stack](#packages)
+
+## <a name="getting-started">Getting Started</a>
 Install the packages as following:
 ```bash
 pnpm install
@@ -20,7 +29,7 @@ pnpm run build
 
 <br>
 
-## Linting
+## <a name="linting">Linting</a>
 Check for linting errors:
 ```bash
 pnpm run lint
@@ -30,10 +39,10 @@ Autofix linting errors:
 ```bash
 pnpm run lint:fix
 ```
-<br>
+
 <br>
 
-## Environment variables
+## <a name="env-variables">Environment Variables</a>
 Use the `.env.example` file as a template
 ```bash
 NUXT_PUBLIC_BASE_URL=http://localhost:3000
@@ -42,7 +51,7 @@ You can change the `BASE_URL` to a development API url for testing/implementing.
 
 <br>
 
-## Project Packages / Stack
+## <a name="packages">Project packages / stack</a>
 
 Each package has a link to useful documentation
 
