@@ -54,6 +54,8 @@ pnpm run lint:fix
 Use the `.env.example` file as a template
 
 ```bash
+# .env
+
 NUXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
