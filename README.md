@@ -44,7 +44,9 @@ You can change the `BASE_URL` to a development API url for testing/implementing.
 
 <br>
 
-## Techstack
+## Project Packages / Stack
+
+### Each package has a link to useful documentation
 
 | Category | Package |
 | --- | --- |
