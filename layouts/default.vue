@@ -1,16 +1,5 @@
-<script lang="ts" setup>
-
-</script>
-
 <template>
-  <div class="min-h-screen flex flex-col overflow-hidden">
-    <AppHeader class="hidden lg:block" />
-    <AppHeaderMobile class="block lg:hidden" />
-    <!-- Content -->
+  <div class="flex min-h-screen flex-col overflow-hidden">
     <slot />
-    <!-- Content -->
-    <AppFooter class="mt-auto" />
   </div>
 </template>
-
-<style></style>

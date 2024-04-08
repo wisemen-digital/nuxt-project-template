@@ -1,11 +1,11 @@
 <script setup lang="ts">
 interface NuxtError {
-  url: string
+  data: any
+  description: string
+  message: string
   statusCode: number
   statusMessage: string
-  message: string
-  description: string
-  data: any
+  url: string
 }
 
 const props = defineProps<{
@@ -28,5 +28,3 @@ function handleError() {
     </div>
   </NuxtLayout>
 </template>
-
-<style scoped></style>

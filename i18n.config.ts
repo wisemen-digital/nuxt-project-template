@@ -1,5 +1,6 @@
 export default defineI18nConfig(() => ({
-  legacy: false,
-  warnHtmlInMessage: 'off',
+  flatJson: true,
   keystyle: 'nested',
+  legacy: false,
+  warnHtmlInMessage: 'on',
 }))

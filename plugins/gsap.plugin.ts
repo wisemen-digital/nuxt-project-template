@@ -5,13 +5,17 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
 
-export default defineNuxtPlugin(() => {
-  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, CSSRulePlugin, ScrollToPlugin, TextPlugin)
+export default defineNuxtPlugin({
+  name: 'gsap',
+  parallel: true,
+  setup() {
+    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, CSSRulePlugin, ScrollToPlugin, TextPlugin)
 
-  return {
-    provide: {
-      gsap,
-      scrollTrigger: ScrollTrigger,
-    },
-  }
+    return {
+      provide: {
+        gsap,
+        scrollTrigger: ScrollTrigger,
+      },
+    }
+  },
 })
