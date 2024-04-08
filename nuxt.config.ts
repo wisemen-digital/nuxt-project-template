@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
+    '@nuxt/test-utils/module',
   ],
   i18n: {
     strategy: 'prefix',

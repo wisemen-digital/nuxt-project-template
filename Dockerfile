@@ -1,18 +1,30 @@
-FROM node:20-alpine as build-stage
+# Command line arguments, such as Node version
+ARG NODE_VERSION=lts
+
+#
+# --- Stage 1: Build ---
+#
+
+FROM node:${NODE_VERSION} as build
 
 RUN corepack enable pnpm
 
+# Install dependencies
 WORKDIR /app
-
-COPY . .
-
+COPY package.json pnpm-lock.yaml tsconfig.json .npmrc ./
 RUN pnpm install --frozen-lockfile
 
+# Copy files
+COPY . .
+
+# Build & optimize a bit
 RUN pnpm run build
 
-FROM node:20-alpine as production-stage
+#
+# --- Stage 2: Run ---
+#
 
-COPY --from=build-stage /app/.output  .
+FROM ghcr.io/wisemen-digital/nuxt-base:${NODE_VERSION} as final
 
-EXPOSE 3000
-ENTRYPOINT ["node", "./server/index.mjs"]
+# Add application
+COPY --from=build --chown=nobody /app/.output /app/www/
