@@ -1,8 +1,8 @@
 {
-  "packageManager": "pnpm@8.15.6",
   "name": "nuxt-app",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@8.15.6",
   "scripts": {
     "build": "nuxt build",
     "build_local": "nuxt build && node .output/server/index.mjs",
