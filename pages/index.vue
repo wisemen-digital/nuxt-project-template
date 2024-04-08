@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AuthService } from '~/modules/auth/api/services/auth.service';
+import { AuthService } from '~/modules/auth/api/services/auth.service'
 
 const userInfo = await AuthService.getCurrentUser()
 </script>

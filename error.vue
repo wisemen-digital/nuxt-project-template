@@ -12,8 +12,10 @@ const props = defineProps<{
   error: NuxtError
 }>()
 
+const localeRoute = useLocaleRoute()
+
 function handleError() {
-  return clearError({ redirect: getLocalePath('index') })
+  return clearError({ redirect: localeRoute('/')?.path })
 }
 </script>
 

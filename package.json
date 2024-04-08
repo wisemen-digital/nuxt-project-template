@@ -10,7 +10,8 @@
     "preview": "nuxt preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "clean": "rm -rf node_modules && rm -rf .output && rm -rf .nuxt"
+    "clean": "rm -rf node_modules && rm -rf .output && rm -rf .nuxt",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.17",

@@ -32,7 +32,9 @@ export class OAuth2VueClient {
 
     const tokens = this.loadTokensFromCookie()
 
-    if (tokens !== null) { this.client = this.createClient(tokens) }
+    if (tokens !== null) {
+      this.client = this.createClient(tokens)
+    }
   }
 
   private createClient(tokens: OAuth2ClientTokensWithExpiration): TokenStore {
@@ -73,7 +75,9 @@ export class OAuth2VueClient {
   private saveTokensToCookie(tokens: OAuth2ClientTokensWithExpiration | null): void {
     const tokensCookie = useCookie<OAuth2ClientTokensWithExpiration | null>('tokens')
 
-    if (tokens === null) { tokensCookie.value = null }
+    if (tokens === null) {
+      tokensCookie.value = null
+    }
     else { tokensCookie.value = tokens }
   }
 
@@ -108,7 +112,9 @@ export async function addAuthorizationHeader(
 ): Promise<FetchOptions> {
   const client = oAuthClient.getClient()
 
-  if (client === null) { return fetchOptions }
+  if (client === null) {
+    return fetchOptions
+  }
 
   try {
     const token = await client.getAccessToken()

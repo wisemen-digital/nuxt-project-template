@@ -30,7 +30,9 @@ export class TokenStore {
   }
 
   private refreshToken(): Promise<void> {
-    if (this._promise != null) { return this._promise }
+    if (this._promise != null) {
+      return this._promise
+    }
 
     this._promise = new Promise((resolve, reject) => {
       this.options.fetchInstance<any>(this.options.tokenEndpoint, {
@@ -52,7 +54,9 @@ export class TokenStore {
             expires_at: Date.now() + data.expires_in * 1000,
           }
 
-          if (this.onTokensRefreshedCallback != null) { this.onTokensRefreshedCallback(this.tokens) }
+          if (this.onTokensRefreshedCallback != null) {
+            this.onTokensRefreshedCallback(this.tokens)
+          }
 
           resolve()
         })
@@ -68,7 +72,9 @@ export class TokenStore {
   }
 
   public async getAccessToken(): Promise<string> {
-    if (this.accessTokenExpired()) { await this.refreshToken() }
+    if (this.accessTokenExpired()) {
+      await this.refreshToken()
+    }
 
     return this.tokens.access_token
   }
