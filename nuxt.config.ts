@@ -50,12 +50,8 @@ export default defineNuxtConfig({
     vueI18n: './i18n.config.ts',
   },
   imports: {
-    dirs: [
-      'composables/**',
-      'models/**',
-      'stores/**',
-      'utils/**',
-    ],
+    dirs: [],
+    global: false,
   },
   modules: [
     '@nuxtjs/i18n',

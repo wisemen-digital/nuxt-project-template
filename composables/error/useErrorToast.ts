@@ -1,6 +1,8 @@
 import { useToast } from '@wisemen/vue-core'
 import { useI18n } from 'vue-i18n'
 
+import { isFetchError } from '~/utils/api/isFetchError'
+
 interface UserErrorToastReturnType {
   show: (error: unknown) => void
 }

@@ -2,14 +2,11 @@
 import { useToast } from '@wisemen/vue-core'
 import { useForm } from 'formango'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 import type { CurrentUser } from '@/models/auth/current-user/currentUser.model'
 import { loginFormSchema } from '@/models/auth/login/loginForm.model'
-import AuthPage from '@/modules/auth/components/AuthPage.vue'
-import AuthLoginForm from '@/modules/auth/features/login/components/AuthLoginForm.vue'
 import { useAuthStore } from '@/stores/auth.store'
+import { isFetchError } from '~/utils/api/isFetchError'
 
 const authStore = useAuthStore()
 const localeRoute = useLocaleRoute()

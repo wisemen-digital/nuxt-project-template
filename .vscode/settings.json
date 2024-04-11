@@ -31,5 +31,8 @@
   ],
   // Fix unknown at-rules for scss and css (UnoCSS)
   "scss.lint.unknownAtRules": "ignore",
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "typescript.preferences.importModuleSpecifier": "non-relative", // or "shortest"
+  "javascript.preferences.importModuleSpecifier": "non-relative" // or "shortest"
+
 }

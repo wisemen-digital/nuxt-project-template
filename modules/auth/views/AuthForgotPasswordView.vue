@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { useForm } from 'formango'
-import { storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
-import { forgotPasswordFormSchema } from '@/models/auth/forgot-password/forgotPasswordForm.model'
-import { useAuthForgotPasswordMutation } from '@/modules/auth/api/mutations/authForgotPassword.mutation'
-import AuthPage from '@/modules/auth/components/AuthPage.vue'
-import AuthForgotPasswordForm from '@/modules/auth/features/forgot-password/components/AuthForgotPasswordForm.vue'
-import { useAuthStore } from '@/stores/auth.store'
+import { useErrorToast } from '~/composables/error/useErrorToast'
+import { forgotPasswordFormSchema } from '~/models/auth/forgot-password/forgotPasswordForm.model'
+import { useAuthForgotPasswordMutation } from '~/modules/auth/api/mutations/authForgotPassword.mutation'
+import { useAuthStore } from '~/stores/auth.store'
 
 const authStore = useAuthStore()
 

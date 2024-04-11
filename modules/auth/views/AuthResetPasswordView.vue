@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { useForm } from 'formango'
-import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 import { resetPasswordFormSchema } from '@/models/auth/reset-password/resetPasswordForm.model'
 import { useAuthResetPasswordMutation } from '@/modules/auth/api/mutations/authResetPassword.mutation'
-import AuthPage from '@/modules/auth/components/AuthPage.vue'
-import ResetPasswordForm from '@/modules/auth/features/reset-password/components/AuthResetPasswordForm.vue'
+import { useErrorToast } from '~/composables/error/useErrorToast'
 
 const hasPasswordBeenReset = ref<boolean>(false)
 

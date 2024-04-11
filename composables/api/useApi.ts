@@ -1,10 +1,10 @@
-export function useHttp() {
+export function useApi() {
   const httpClient = useNuxtApp().$httpClient
 
   return httpClient
 }
 
-export function useUnauthorizedHttp() {
+export function useUnauthorizedApi() {
   const unauthorizedHttpClient = useNuxtApp().$unauthorizedHttpClient
 
   return unauthorizedHttpClient
