@@ -11,6 +11,7 @@
   // Change to main project language
   "i18n-ally.sourceLanguage": "nl",
   "i18n-ally.displayLanguage": "nl",
+  "i18n-ally.keystyle": "flat",
   // Enable eslint for all supported languages
   "eslint.validate": [
     "javascript",
@@ -25,7 +26,6 @@
     "yaml",
     "toml"
   ],
-  "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": [
     "locales"
   ],

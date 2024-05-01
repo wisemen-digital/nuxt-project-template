@@ -3,16 +3,28 @@
 import ContainerQueries from '@tailwindcss/container-queries'
 import Typeography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
+import PluginCreator from 'tailwindcss/plugin'
 
 export default {
   content: [
     './index.html',
-    './src/**/*.{vue,ts}',
+    './components/**/*.{vue,ts}',
+    './layouts/**/*.{vue,ts}',
+    './assets/**/*.{vue,ts}',
+    './pages/**/*.{vue,ts}',
+    './assets/**/*.{vue,ts}',
+    './modules/**/*.{vue,ts}',
     './node_modules/@wisemen/vue-core/**/*.js',
   ],
   plugins: [
     Typeography,
     ContainerQueries,
+    PluginCreator(({ addUtilities }) => {
+      addUtilities({
+        '.focus-ring': {},
+      })
+    }),
+
   ],
   theme: {
     extend: {

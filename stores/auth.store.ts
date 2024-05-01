@@ -53,9 +53,9 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   return {
+    isAuthenticated,
     currentUser,
     getCurrentUser,
-    isAuthenticated,
     lastLoggedInUser: readonly(lastLoggedInUser),
     lastLoginAttemptEmail: readonly(lastLoginAttemptEmail),
     login,
