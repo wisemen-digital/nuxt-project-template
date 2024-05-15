@@ -12,6 +12,7 @@ const userInfo = await AuthService.getCurrentUser()
         <img
           src="/favicon.ico"
         >
+        <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
         <span>Wisemen Nuxt Project Template</span>
       </h1>
     </Container>

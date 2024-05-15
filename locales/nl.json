@@ -1,1 +1,27 @@
-{}
+{
+  "errors.invalid_date": "Ongeldige datum.",
+  "errors.invalid_datetime": "Ongeldige datetime.",
+  "errors.invalid_email": "Ongeldig e-mail.",
+  "errors.invalid_regex": "Ongeldige REGEX.",
+  "errors.invalid_string": "Ongeldige tekst.",
+  "errors.invalid_type": "Dit veld is verplicht.",
+  "errors.invalid_url": "Ongeldige url.",
+  "errors.invalid_uuid": "Ongeldige UUID.",
+  "errors.too_big": "Max. {count}.",
+  "errors.too_big_array": "Max. {count} elementen.",
+  "errors.too_big_date": "Max. {count} datum.",
+  "errors.too_big_number": "Max. {count}.",
+  "errors.too_big_string": "Max. {count} karakters lang.",
+  "errors.too_small": "Min. {count}.",
+  "errors.too_small_date": "Min. {count} datum.",
+  "errors.too_small_array": "Min. {count} elementen.",
+  "errors.too_small_number": "Min. {count}.",
+  "errors.too_small_string": "Min. {count} karakters lang.",
+  "components.table.no_results_found": "Geen resultaten gevonden",
+  "components.table.no_data": "Geen data gevonden",
+  "components.table.no_query_match": "Deze zoekfunctie heeft geen resultaten",
+  "components.table.clear_filter_filters": "Filters uitzetten",
+  "locale.fr": "Frans",
+  "locale.nl": "Nederlands",
+  "locale.en": "Engels"
+}

@@ -1,18 +1,33 @@
-/** @type {import('tailwindcss').Config} */
-
 import ContainerQueries from '@tailwindcss/container-queries'
 import Typeography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
+import PluginCreator from 'tailwindcss/plugin'
 
 export default {
   content: [
     './index.html',
-    './src/**/*.{vue,ts}',
+    './components/**/*.{vue,ts}',
+    './layouts/**/*.{vue,ts}',
+    './assets/**/*.{vue,ts}',
+    './pages/**/*.{vue,ts}',
+    './assets/**/*.{vue,ts}',
+    './modules/**/*.{vue,ts}',
     './node_modules/@wisemen/vue-core/**/*.js',
   ],
   plugins: [
     Typeography,
     ContainerQueries,
+    PluginCreator(({ addUtilities }) => {
+      addUtilities({
+        '.focus-ring': {},
+        '.gradient-primary': {
+          background: 'linear-gradient(220deg, #567AAE 6.66%, #001238 65.03%)',
+        },
+      })
+    }),
+  ],
+  safelist: [
+    'focus-ring',
   ],
   theme: {
     extend: {
@@ -23,6 +38,7 @@ export default {
         full: 'var(--radius-full)',
         input: 'var(--radius-input)',
         popover: 'var(--radius-popover)',
+        tag: 'var(--radius-tag)',
       },
 
       boxShadow: {
@@ -61,7 +77,7 @@ export default {
         foreground: 'rgba(var(--foreground), <alpha-value>)',
         input: {
           DEFAULT: 'rgba(var(--input), <alpha-value>)',
-          border: 'rgba(var(--input-border), <alpha-value>)',
+          border: 'transparent',
           disabled: 'rgba(var(--input-disabled), <alpha-value>)',
           foreground: 'rgba(var(--input-foreground), <alpha-value>)',
           placeholder: 'rgba(var(--input-placeholder), <alpha-value>)',
@@ -116,15 +132,13 @@ export default {
       },
 
       fontFamily: {
-        mono: [
-          'DM Mono',
+        eurostile: [
+          'eurostile',
         ],
-        sans: [
-          'DM Sans',
-          'sans-serif',
+        jakarta: [
+          'PlusJakartaSans',
         ],
       },
-
       fontSize: {
         body: [
           'var(--font-size-body)',
@@ -142,6 +156,12 @@ export default {
           'var(--font-size-heading)',
           {
             lineHeight: 'var(--font-line-height-heading)',
+          },
+        ],
+        headline: [
+          'var(--font-size-headline)',
+          {
+            lineHeight: 'var(--font-line-height-headline)',
           },
         ],
         hero: [
@@ -172,11 +192,19 @@ export default {
 
       gridTemplateColumns: {
         'auth-layout': '1fr 1.75fr',
+        'product-detail': '4fr 6fr',
+        'reverse-sidebar-layout': '400px minmax(0,1fr)',
+        'sidebar-layout': 'minmax(0,1fr) 400px',
+
         'table-skeleton': '1fr 4fr 2fr 1fr',
+      },
+      gridTemplateRows: {
+        'product-detail': 'auto minmax(32px,1fr)',
       },
 
       maxWidth: {
-        container: '70rem',
+        'container': '70rem',
+        'prose-sm': '50ch',
       },
 
       transitionTimingFunction: {

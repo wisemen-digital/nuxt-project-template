@@ -12,12 +12,6 @@ export default defineNuxtConfig({
       title: 'Nuxt Project Template',
     },
   },
-
-  build: {
-    transpile: [
-      'gsap',
-    ],
-  },
   components: [
     {
       path: '~/components',
@@ -30,23 +24,23 @@ export default defineNuxtConfig({
   ], css: [
     '~/assets/styles/main.scss',
   ],
-
   devtools: { enabled: true },
   experimental: {
     typedPages: true,
+    viewTransition: true,
   },
   i18n: {
     compilation: {
       strictMessage: false,
     },
-    defaultLocale: 'en',
+    defaultLocale: 'nl',
     langDir: 'locales',
     locales: [
-      { code: 'en', file: 'en.json', iso: 'en-US' },
-      { code: 'nl', file: 'nl.json', iso: 'nl-BE' },
-      { code: 'fr', file: 'fr.json', iso: 'fr-FR' },
+      { iso: 'en-US', code: 'en', file: 'en.json' },
+      { iso: 'nl-BE', code: 'nl', file: 'nl.json' },
+      { iso: 'fr-FR', code: 'fr', file: 'fr.json' },
     ],
-    strategy: 'prefix_and_default',
+    strategy: 'prefix',
     vueI18n: './i18n.config.ts',
   },
   imports: {
@@ -58,25 +52,17 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@pinia/nuxt',
+    'nuxt-time',
   ],
   nitro: {
     compressPublicAssets: {
       brotli: true,
     },
-    prerender: {
-      failOnError: false,
-    },
-  },
-  routeRules: {
-    '/': { prerender: false, redirect: '/nl' },
-    '/en': { prerender: true },
-    '/fr': { prerender: true },
-    '/nl': { prerender: true },
   },
   runtimeConfig: {
     public: {
-      apiBaseUrl: '', // can be overridden by NUXT_PUBLIC_API_URL environment variable
       apiClientId: '', // can be overridden by NUXT_PUBLIC_API_CLIENT_ID environment variable
+      apiBaseUrl: '', // can be overridden by NUXT_PUBLIC_API_URL environment variable
       apiClientSecret: '', // can be overridden by NUXT_PUBLIC_API_CLIENT_SECRET environment variable
       apiEndpoint: '', // can be overridden by NUXT_PUBLIC_API_ENDPOINT environment variable
     },

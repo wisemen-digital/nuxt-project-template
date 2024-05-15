@@ -3,6 +3,7 @@ import { defineNuxtRouteMiddleware } from 'nuxt/app'
 import { useNuxtApp } from '#app'
 import { navigateTo } from '#imports'
 import { useAuthStore } from '~/stores/auth.store'
+import { isFetchError } from '~/utils/api/isFetchError'
 
 export default defineNuxtRouteMiddleware(async () => {
   const authStore = useAuthStore()

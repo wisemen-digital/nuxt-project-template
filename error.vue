@@ -25,6 +25,7 @@ function handleError() {
       <h2>{{ props.error.statusCode ?? 404 }}</h2>
       <p>{{ props.error.message ?? 'Page not found' }}</p>
       <button @click="handleError">
+        <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
         <span>Go back</span>
       </button>
     </div>

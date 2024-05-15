@@ -1,20 +1,20 @@
 <script setup lang="ts" generic="TFormType extends z.ZodType">
 import {
   AppButton,
-  AppKeyboardCommand,
+  AppKeyboardShortcut,
   AppTooltip,
-  useKeyboardCommand,
+  useKeyboardShortcut,
 } from '@wisemen/vue-core'
 import type { Form } from 'formango'
 import { computed, ref } from 'vue'
 import type { z } from 'zod'
 
 const props = withDefaults(defineProps<{
-  form: Form<TFormType>
   formId?: null | string
   isAlwaysEnabled?: boolean
   isDisabled?: boolean
   isKeyboardCommandDisabled?: boolean
+  form: Form<TFormType>
 }>(), {
   formId: null,
   isAlwaysEnabled: false,
@@ -41,20 +41,16 @@ function initKeyboardCommand(): void {
     return
   }
 
-  useKeyboardCommand({
-    command: {
-      keys: [
-        'ctrl',
-        's',
-      ],
-      onPressed: () => {
-        if (props.form.isDirty) {
-          buttonRef.value?.$el.click()
-        }
-      },
-      type: 'combination',
+  useKeyboardShortcut({
+    keys: [
+      'ctrl',
+      's',
+    ],
+    onTrigger: () => {
+      if (props.form.isDirty) {
+        buttonRef.value?.$el.click()
+      }
     },
-    scope: 'global',
   })
 }
 
@@ -82,7 +78,7 @@ initKeyboardCommand()
 
       <template #content>
         <div class="px-3 py-2">
-          <AppKeyboardCommand
+          <AppKeyboardShortcut
             v-if="!props.isKeyboardCommandDisabled"
             :keys="['ctrl', 's']"
             :has-border="true"

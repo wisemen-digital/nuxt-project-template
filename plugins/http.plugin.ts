@@ -1,4 +1,3 @@
-import { defineNuxtPlugin } from '#app'
 import { createHttpZodClient } from '~/lib/httpZodClient'
 
 export default defineNuxtPlugin({
