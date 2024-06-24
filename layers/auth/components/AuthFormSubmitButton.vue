@@ -11,8 +11,6 @@ const props = defineProps<{
   <AppFormSubmitButton
     :form="props.form"
     :is-keyboard-command-disabled="true"
-    variant="secondary"
-    class="mt-4"
   >
     <slot />
   </AppFormSubmitButton>

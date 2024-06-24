@@ -84,11 +84,13 @@ onSubmitForm(async (data) => {
       >
         <template #request_account>
           <NuxtLinkLocale
-            to="/auth/register"
+            :to="{
+              name: 'auth-register',
+            }"
             class="py-2 text-right text-secondary hover:underline focus:underline"
           >
             <AppText
-              class="ml-1 font-medium text-secondary"
+              class="ml-1 font-medium text-primary"
               variant="subtext"
               as="span"
             >

@@ -37,11 +37,13 @@ const password = props.form.register('password')
       />
       <div class="flex justify-end">
         <NuxtLinkLocale
-          to="/auth/forgot-password"
+          :to="{
+            name: 'auth-forgot-password',
+          }"
           class="py-2 text-right"
         >
           <AppText
-            class="font-medium text-secondary hover:underline focus:underline"
+            class="font-medium text-primary hover:underline focus:underline"
             variant="subtext"
           >
             {{ t('auth.login.forgot_password') }}

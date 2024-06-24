@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@base': path.resolve(__dirname, './layers/base'),
     '~~': path.resolve(__dirname, './disable'),
   },
+
   app: {
     head: {
       title: 'Nuxt Project Template',
@@ -20,13 +21,17 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   devtools: { enabled: true },
+
   future: {
     compatibilityVersion: 4,
   },
+
   imports: {
     scan: false,
   },
+
   nitro: {
     compressPublicAssets: {
       brotli: true,

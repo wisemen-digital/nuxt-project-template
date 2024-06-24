@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     'nuxt-time',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
+    'nuxt-typed-router',
     '@nuxt/test-utils/module',
   ],
   runtimeConfig: {
