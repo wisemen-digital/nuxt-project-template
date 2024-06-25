@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { forgotPasswordFormSchema } from '@auth/models/forgot-password/forgotPasswordForm.model'
-import { FormInput } from '@wisemen/vue-core'
 import type { Form } from 'formango'
 import { useI18n } from 'vue-i18n'
 

@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   css: [
     '@base/assets/styles/main.scss',
   ],
+  experimental: {
+    viewTransition: true,
+  },
   i18n: {
     compilation: {
       strictMessage: false,

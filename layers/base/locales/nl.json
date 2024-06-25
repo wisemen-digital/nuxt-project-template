@@ -90,5 +90,6 @@
   "placeholder.phone": "496 12 34 56",
   "shared.phone": "Telefoonnummer",
   "shared.send": "Versturen",
-  "validation.invalid_phone": "Ongeldig telefoonnummer"
+  "validation.invalid_phone": "Ongeldig telefoonnummer",
+  "layouts.title": "Nuxt Template - {title}"
 }

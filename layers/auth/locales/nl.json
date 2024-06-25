@@ -32,5 +32,8 @@
   "auth.register.register_success_description": "Bevestig alstublieft uw e-mailadres door op de link in de bevestigingsmail te klikken.",
   "auth.login.password_forgot_title": "Wachtwoord vergeten?",
   "auth.login.password_forgot_description": "Voer uw e-mail in om uw wachtwoord te resetten",
-  "auth.back_to_login": "Terug naar aanmelden"
+  "auth.back_to_login": "Terug naar aanmelden",
+  "seo.title.auth": "Authenticatie",
+  "auth.forgot_password.error_title": "Er is iets foutgelopen",
+  "auth.forgot_password.error_description": "Controleer uw gegevens en probeer opnieuw"
 }
