@@ -2,7 +2,7 @@ import { defineVitestConfig } from '@nuxt/test-utils/config'
 
 export default defineVitestConfig({
   test: {
-    passWithNoTests: true,
+    root: './',
   },
   // any custom Vitest config you require
 })
