@@ -25,6 +25,10 @@ export default defineNuxtConfig({
       pathPrefix: false,
       path: '@/components',
     },
+    {
+      pathPrefix: false,
+      path: '@/views',
+    },
   ],
   devtools: { enabled: true },
   future: {

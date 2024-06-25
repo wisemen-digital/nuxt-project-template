@@ -1,34 +1,6 @@
-import type { Component } from 'vue'
-
-export interface BaseIcons {
-  alertCircle: Promise<Component>
-  arrowDown: Promise<Component>
-  arrowLeft: Promise<Component>
-  arrowRight: Promise<Component>
-  arrowUp: Promise<Component>
-  arrowUpDown: Promise<Component>
-  calendar: Promise<Component>
-  checkmark: Promise<Component>
-  checkmarkCircle: Promise<Component>
-  chevronDown: Promise<Component>
-  chevronLeft: Promise<Component>
-  chevronRight: Promise<Component>
-  chevronUp: Promise<Component>
-  close: Promise<Component>
-  eye: Promise<Component>
-  eyeSlash: Promise<Component>
-  filterLines: Promise<Component>
-  minus: Promise<Component>
-  profile: Promise<Component>
-  search: Promise<Component>
-  warning: Promise<Component>
-}
-
 export interface Icons {}
 
-export type AllIcons = BaseIcons & Icons
-
-export const icons: AllIcons = {
+export const icons = {
   alertCircle: import('@base/icons/AlertCircleIcon.vue'),
   arrowDown: import('@base/icons/ArrowDownIcon.vue'),
   arrowLeft: import('@base/icons/ArrowLeftIcon.vue'),
@@ -45,13 +17,18 @@ export const icons: AllIcons = {
   close: import('@base/icons/CloseIcon.vue'),
   eye: import('@base/icons/EyeIcon.vue'),
   eyeSlash: import('@base/icons/EyeSlashIcon.vue'),
+  facebook: import('@base/icons/FacebookIcon.vue'),
   filterLines: import('@base/icons/FilterLinesIcon.vue'),
+  instagram: import('@base/icons/InstagramIcon.vue'),
+  linkedIn: import('@base/icons/LinkedInIcon.vue'),
   minus: import('@base/icons/MinusIcon.vue'),
   profile: import('@base/icons/ProfileIcon.vue'),
   search: import('@base/icons/SearchIcon.vue'),
+  twitter: import('@base/icons/TwitterIcon.vue'),
   warning: import('@base/icons/WarningIcon.vue'),
-}
+} as const
 
+export type AllIcons = typeof icons
 export function extendIcons(customIcons: Icons): void {
   Object.assign(icons, customIcons)
 }
