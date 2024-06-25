@@ -38,9 +38,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiClientId: '', // can be overridden by NUXT_PUBLIC_API_CLIENT_ID environment variable
-      apiBaseUrl: '', // can be overridden by NUXT_PUBLIC_API_URL environment variable
+      apiAuthUrl: '', // can be overridden by NUXT_PUBLIC_API_AUTH_URL environment variable
+      apiBaseUrl: '', // can be overridden by NUXT_PUBLIC_API_BASE_URL environment variable
       apiClientSecret: '', // can be overridden by NUXT_PUBLIC_API_CLIENT_SECRET environment variable
-      apiEndpoint: '', // can be overridden by NUXT_PUBLIC_API_ENDPOINT environment variable
     },
   },
 })

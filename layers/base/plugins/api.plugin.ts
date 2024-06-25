@@ -12,17 +12,17 @@ export default defineNuxtPlugin({
     const API_CLIENT_ID = config.public.apiClientId
     const API_CLIENT_SECRET = config.public.apiClientSecret
     const API_BASE_URL = config.public.apiBaseUrl
-    const API_ENDPOINT = config.public.apiEndpoint
+    const API_AUTH_URL = config.public.apiAuthUrl
 
     const oAuthClient = new OAuth2VueClient({
       clientId: API_CLIENT_ID,
       clientSecret: API_CLIENT_SECRET,
       fetchInstance: $fetch,
-      tokenEndpoint: `${API_BASE_URL}/oauth/token`,
+      tokenEndpoint: `${API_AUTH_URL}/token`,
     })
 
     const api = $fetch.create({
-      baseURL: `${API_BASE_URL}${API_ENDPOINT}`,
+      baseURL: `${API_BASE_URL}`,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export default defineNuxtPlugin({
     })
 
     const unauthorizedApi = $fetch.create({
-      baseURL: `${API_BASE_URL}${API_ENDPOINT}`,
+      baseURL: `${API_BASE_URL}`,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
