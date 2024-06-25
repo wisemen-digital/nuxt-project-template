@@ -2,8 +2,8 @@ import { z } from 'zod'
 
 export const registerDtoSchema = z.object({
   email: z.string().email(),
-  first_name: z.string(),
-  last_name: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
   phone: z.string().length(10),
 })
 

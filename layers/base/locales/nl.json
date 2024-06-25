@@ -89,5 +89,6 @@
   "shared.coming_soon": "Binnenkort beschikbaar",
   "placeholder.phone": "496 12 34 56",
   "shared.phone": "Telefoonnummer",
-  "shared.send": "Versturen"
+  "shared.send": "Versturen",
+  "validation.invalid_phone": "Ongeldig telefoonnummer"
 }

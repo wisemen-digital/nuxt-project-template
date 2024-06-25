@@ -12,28 +12,13 @@ import type { ResetPasswordForm } from './reset-password/resetPasswordForm.model
 
 export class AuthTransformer {
   static toCurrentUser(dto: CurrentUserDto): CurrentUser {
-    const dossier = dto.dossier != null
-      ? {
-          name: dto.dossier.name,
-          manager: {
-            email: dto.dossier.manager.email,
-            firstName: dto.dossier.manager.first_name,
-            lastName: dto.dossier.manager.last_name,
-            phone: dto.dossier.manager.phone,
-          },
-        }
-      : null
-
     return {
       id: dto.id,
-      contractNumber: dto.contract_number ?? null,
-      dossier,
       email: dto.email,
-      firstName: dto.first_name,
-      fullName: `${dto.first_name} ${dto.last_name}`,
-      lastName: dto.last_name,
+      firstName: dto.firstName,
+      fullName: `${dto.firstName} ${dto.lastName}`,
+      lastName: dto.lastName,
       phone: dto.phone ?? null,
-      vat: dto.vat ?? null,
     }
   }
 
@@ -53,8 +38,8 @@ export class AuthTransformer {
   static toRegisterDto(form: RegisterForm): RegisterDto {
     return {
       email: form.email,
-      first_name: form.firstName,
-      last_name: form.lastName,
+      firstName: form.firstName,
+      lastName: form.lastName,
       phone: form.phone,
     }
   }

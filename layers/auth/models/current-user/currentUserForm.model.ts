@@ -15,7 +15,7 @@ export const currentUserFormSchema = z.object({
     if (!isValidPhoneNumber(value)) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: t('errors.invalid_phone'),
+        message: t('validation.invalid_phone'),
       })
     }
   }),
