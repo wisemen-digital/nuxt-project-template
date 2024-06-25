@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { CurrentUser } from '@auth/models/current-user/currentUser.model'
 import type { loginFormSchema } from '@auth/models/login/loginForm.model'
-import { AppText } from '@wisemen/vue-core'
 import type { Form } from 'formango'
 import { useI18n } from 'vue-i18n'
 
@@ -17,13 +16,15 @@ const password = props.form.register('password')
 </script>
 
 <template>
-  <AppForm :form="form">
+  <AppForm
+    :form="form"
+    :can-exit-when-dirty="true"
+  >
     <AppFormElementSpacer>
       <FormInput
         v-bind="email"
         :is-required="true"
         :label="t('form.fields.email')"
-        variant="auth"
         placeholder="email@example.com"
         type="email"
       />
@@ -33,29 +34,25 @@ const password = props.form.register('password')
         :is-required="true"
         :label="t('form.fields.password')"
         :placeholder="t('form.fields.password')"
-        variant="auth"
       />
-      <div class="flex justify-end">
-        <NuxtLinkLocale
-          :to="{
-            name: 'auth-forgot-password',
-          }"
-          class="py-2 text-right"
+
+      <NuxtLinkLocale
+        :to="{
+          name: 'auth-forgot-password',
+        }"
+      >
+        <AppText
+          class="font-medium text-primary hover:underline focus:underline"
+          variant="subtext"
         >
-          <AppText
-            class="font-medium text-primary hover:underline focus:underline"
-            variant="subtext"
-          >
-            {{ t('auth.login.forgot_password') }}
-          </AppText>
-        </NuxtLinkLocale>
-      </div>
+          {{ t('auth.login.forgot_password') }}
+        </AppText>
+      </NuxtLinkLocale>
     </AppFormElementSpacer>
 
     <AuthFormSubmitButton
+      :label="t('auth.login.log_in')"
       :form="form"
-    >
-      {{ t('auth.login.keep_on') }}
-    </AuthFormSubmitButton>
+    />
   </AppForm>
 </template>

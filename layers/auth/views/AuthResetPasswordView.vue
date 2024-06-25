@@ -1,43 +1,54 @@
 <script setup lang="ts">
 import { useAuthResetPasswordMutation } from '@auth/api/mutations/authResetPassword.mutation'
 import { resetPasswordFormSchema } from '@auth/models/reset-password/resetPasswordForm.model'
-import { useToast } from '@base/composables/core/toast.composable'
+import { useToast } from '@wisemen/vue-core'
 import { useForm } from 'formango'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const hasPasswordBeenReset = ref<boolean>(false)
+const hasPasswordBeenReset = ref<boolean>(true)
 
 const { t } = useI18n()
 const toast = useToast()
 
-const { form, onSubmitForm } = useForm({
+const {
+  form,
+  onSubmitForm,
+  onSubmitFormError,
+} = useForm({
   schema: resetPasswordFormSchema,
 })
 
-const queryParams = useRoute().query as { email: string, token: string }
+const route = useRoute('auth-reset-password')
 
-form.register('token', queryParams.token)
-form.register('email', queryParams.email)
+form.register('token', route.query.token as string)
+form.register('email', route.query.email as string)
 
 const resetPasswordMutation = useAuthResetPasswordMutation()
 
 const description = computed<string>(() => {
   if (hasPasswordBeenReset.value) {
-    return t('auth.features.your_password_has_been_reset_you_can')
+    return t('auth.reset_password.success.description')
   }
 
   return t('auth.reset_password.description')
 })
 
+onSubmitFormError(() => {
+  toast.error({
+    title: t('error.invalid_form_input.title'),
+    description: t('error.invalid_form_input.description'),
+  })
+})
+
 onSubmitForm(async (values) => {
   try {
     await resetPasswordMutation.mutateAsync(values)
+
     hasPasswordBeenReset.value = true
   }
   catch (error) {
-    toast.error({
-      title: t('auth.reset_password.error_toast.title'),
-      description: t('auth.reset_password.error_toast.description'),
-    })
+    // TODO: handle error
   }
 })
 </script>
@@ -51,5 +62,14 @@ onSubmitForm(async (values) => {
       v-if="!hasPasswordBeenReset"
       :form="form"
     />
+
+    <NuxtLinkLocale
+      v-else
+      :to="{
+        name: 'auth-login',
+      }"
+    >
+      {{ t('auth.reset_password.success.action') }}
+    </NuxtLinkLocale>
   </AuthPage>
 </template>

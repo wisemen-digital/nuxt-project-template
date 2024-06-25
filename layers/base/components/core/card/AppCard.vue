@@ -16,7 +16,7 @@ const isButton = cardComponent === 'button'
 <template>
   <Component
     :is="cardComponent"
-    :class="twMerge('p-4 bg-card text-card-foreground rounded-card text-left w-full', isButton ? 'focus-ring' : '', attrs?.class as string)"
+    :class="twMerge('p-4 bg-card text-card-foreground rounded-card text-left w-full shadow-card-shadow', isButton ? 'focus-ring' : '', attrs?.class as string)"
   >
     <slot />
   </Component>

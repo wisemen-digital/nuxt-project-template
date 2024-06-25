@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div>
-    <BaseLayerComponent />
+  <div class="w-full">
+    <MockConstruction />
   </div>
 </template>
 

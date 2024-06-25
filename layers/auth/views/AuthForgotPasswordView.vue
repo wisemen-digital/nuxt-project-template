@@ -43,27 +43,23 @@ onSubmitForm(async (values) => {
 </script>
 
 <template>
-  <div class="flex w-full flex-1 items-center justify-center">
-    <AuthCard>
-      <AuthTitleSubtitle
-        :title=" t('auth.login.password_forgot_title')"
-        :subtitle=" t('auth.login.password_forgot_subtitle')"
-      />
+  <AuthPage
+    :title=" t('auth.login.password_forgot_title')"
+    :description=" t('auth.login.password_forgot_description')"
+  >
+    <AuthForgotPasswordForm
+      v-if="!hasResetPassword"
+      :form="form"
+      :last-login-attempt-email="lastLoginAttemptEmail"
+    />
 
-      <AuthForgotPasswordForm
-        v-if="!hasResetPassword"
-        :form="form"
-        :last-login-attempt-email="lastLoginAttemptEmail"
-      />
-
-      <div class="mt-8 flex justify-center">
-        <NuxtLinkLocale
-          class="text-subtext"
-          to="/auth/login"
-        >
-          {{ t('auth.back_to_login') }}
-        </NuxtLinkLocale>
-      </div>
-    </AuthCard>
-  </div>
+    <div class="mt-4 flex justify-center">
+      <NuxtLinkLocale
+        class="text-subtext text-primary hover:underline focus:underline"
+        to="/auth/login"
+      >
+        {{ t('auth.back_to_login') }}
+      </NuxtLinkLocale>
+    </div>
+  </AuthPage>
 </template>

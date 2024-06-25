@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { AppText } from '@wisemen/vue-core'
-
 const props = defineProps<{
   title: string
   description: string
@@ -8,7 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex w-full flex-1 flex-col items-center justify-center">
+  <div class="flex w-full flex-col pb-24">
     <AppText
       class="font-medium text-foreground"
       variant="title"

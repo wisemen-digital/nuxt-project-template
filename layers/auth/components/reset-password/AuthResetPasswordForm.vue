@@ -14,15 +14,19 @@ const password = props.form.register('password')
 </script>
 
 <template>
-  <AppForm :form="form">
+  <AppForm
+    :form="form"
+    :can-exit-when-dirty="true"
+  >
     <FormPasswordInput
       v-bind="password"
       :label="t('form.fields.password')"
       type="password"
     />
 
-    <AuthFormSubmitButton :form="form">
-      {{ t('auth.reset_password.action') }}
-    </AuthFormSubmitButton>
+    <AuthFormSubmitButton
+      :form="form"
+      :label="t('auth.reset_password.action')"
+    />
   </AppForm>
 </template>

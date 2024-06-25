@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <div class="flex min-h-screen flex-col overflow-hidden">
-      <div class="relative z-0 grid flex-1 grid-cols-1 gap-12 px-4 py-32 lg:grid-cols-1">
-        <slot />
+  <div class="grid h-screen grid-cols-1 md:grid-cols-2">
+    <div class="flex flex-col justify-center px-6 py-20">
+      <div class="mx-auto w-full max-w-lg">
+        <NuxtPage />
       </div>
     </div>
+
+    <div class="bg-black" />
   </div>
 </template>

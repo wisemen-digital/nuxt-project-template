@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@base': path.resolve(__dirname, './layers/base'),
     '~~': path.resolve(__dirname, './disable'),
   },
-
   app: {
     head: {
       title: 'Nuxt Project Template',
@@ -21,17 +20,21 @@ export default defineNuxtConfig({
       ],
     },
   },
-
   devtools: { enabled: true },
-
   future: {
     compatibilityVersion: 4,
   },
-
+  i18n: {
+    langDir: 'locales',
+    locales: [
+      { iso: 'en-US', code: 'en', file: 'en.json' },
+      { iso: 'nl-BE', code: 'nl', file: 'nl.json' },
+      { iso: 'fr-FR', code: 'fr', file: 'fr.json' },
+    ],
+  },
   imports: {
     scan: false,
   },
-
   nitro: {
     compressPublicAssets: {
       brotli: true,

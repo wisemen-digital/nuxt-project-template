@@ -10,41 +10,39 @@ const { t } = useI18n()
 const firstName = form.register('firstName')
 const lastName = form.register('lastName')
 const email = form.register('email')
-const phone = form.register('phone')
+const phone = form.register('phone', '+32')
 </script>
 
 <template>
-  <AppFormGrid>
+  <AppFormGrid class="lg:grid-cols-1">
     <FormInput
       v-bind="firstName"
-      :label="t('auth.register.first_name')"
-      :placeholder="t('auth.register.first_name')"
+      :label="t('shared.first_name')"
+      :placeholder="t('shared.first_name')"
       variant="auth"
     />
     <FormInput
       v-bind="lastName"
-      :label="t('auth.register.last_name')"
-      :placeholder="t('auth.register.last_name')"
+      :label="t('shared.last_name')"
+      :placeholder="t('shared.last_name')"
       variant="auth"
     />
     <FormInput
       v-bind="email"
-      :label="t('auth.register.email')"
-      :placeholder="t('auth.register.email')"
+      :label="t('shared.email')"
+      :placeholder="t('shared.email')"
       variant="auth"
     />
     <FormPhoneNumberInput
       v-bind="phone"
-      :label="t('auth.register.phone')"
+      :label="t('shared.phone')"
       :placeholder="t('placeholder.phone')"
       variant="auth"
     />
     <AppButton
-      variant="secondary"
-      class="lg:col-span-2"
       @click="form.submit"
     >
-      {{ t('auth.register.send') }}
+      {{ t('shared.send') }}
     </AppButton>
   </AppFormGrid>
 </template>

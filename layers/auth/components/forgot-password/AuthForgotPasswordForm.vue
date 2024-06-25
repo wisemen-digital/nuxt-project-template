@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { forgotPasswordFormSchema } from '@auth/models/forgot-password/forgotPasswordForm.model'
+import { FormInput } from '@wisemen/vue-core'
 import type { Form } from 'formango'
 import { useI18n } from 'vue-i18n'
 
@@ -14,21 +15,22 @@ const email = props.form.register('email', props.lastLoginAttemptEmail ?? undefi
 </script>
 
 <template>
-  <AppForm :form="form">
+  <AppForm
+    :form="form"
+    :can-exit-when-dirty="true"
+  >
     <FormInput
       v-bind="email"
       :is-required="true"
       :label="t('form.fields.email')"
-      :placeholder="t('auth.enter_your_email')"
-      variant="auth"
+      :placeholder="t('auth.forgot_password.email_placeholder')"
       type="email"
     />
 
     <AuthFormSubmitButton
       :form="form"
       :is-always-enabled="true"
-    >
-      {{ t('auth.reset_password') }}
-    </AuthFormSubmitButton>
+      :label="t('auth.forgot_password.action')"
+    />
   </AppForm>
 </template>

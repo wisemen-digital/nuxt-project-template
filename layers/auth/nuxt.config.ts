@@ -14,7 +14,16 @@ export default defineNuxtConfig({
       path: '@auth/views',
     },
   ],
+
   extends: [
     '../base',
   ],
+  i18n: {
+    langDir: 'locales',
+    locales: [
+      { iso: 'en-US', code: 'en', file: 'en.json' },
+      { iso: 'nl-BE', code: 'nl', file: 'nl.json' },
+      { iso: 'fr-FR', code: 'fr', file: 'fr.json' },
+    ],
+  },
 })
