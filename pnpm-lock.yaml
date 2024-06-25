@@ -18,8 +18,8 @@ dependencies:
     specifier: ^5.45.0
     version: 5.45.0(vue@3.4.30)
   '@wisemen/vue-core':
-    specifier: ^0.0.77
-    version: 0.0.77
+    specifier: ^0.0.78
+    version: 0.0.78
   embla-carousel:
     specifier: ^8.1.5
     version: 8.1.5
@@ -4951,8 +4951,8 @@ packages:
       - vue-eslint-parser
     dev: true
 
-  /@wisemen/vue-core@0.0.77:
-    resolution: {integrity: sha512-ErRSGIvT+b3C70buG4H3eDlhIo8laDDZu1M9gvX1hSai7ZyVLfL0HMyXIOj0lAOp7sBUlpJxRV2VOzGjReCDIg==}
+  /@wisemen/vue-core@0.0.78:
+    resolution: {integrity: sha512-8qdKgBXvOqjW/6uHCS/f8l6gdA9wfkw1znOgAI2NiOxdZtxgQa8Fl11UyIqJK0A7SEDgh37zrl/XbWWHOB0Slg==}
     dependencies:
       '@internationalized/date': 3.5.4
     dev: false

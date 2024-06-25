@@ -91,5 +91,10 @@
   "shared.phone": "Telefoonnummer",
   "shared.send": "Versturen",
   "validation.invalid_phone": "Ongeldig telefoonnummer",
-  "layouts.title": "Nuxt Template - {title}"
+  "layouts.title": "Nuxt Template - {title}",
+  "shared.logout": "Uitloggen",
+  "shared.settings": "Instellingen",
+  "locale.fr": "Frans",
+  "locale.nl": "Nederlands",
+  "locale.en": "Engels"
 }
