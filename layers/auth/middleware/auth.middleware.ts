@@ -1,21 +1,23 @@
 import { useAuthStore } from '@auth/stores/auth.store'
+import { useGlobalI18n } from '@base/composables/i18n/useGlobaI18n'
 import { defineNuxtRouteMiddleware } from 'nuxt/app'
 
 export default defineNuxtRouteMiddleware(async () => {
   const authStore = useAuthStore()
+  const { locale } = useGlobalI18n()
   const oAuthClient = useNuxtApp().$oAuthClient
+  const localePath = `/${locale.value}`
 
-  const hasTokens = oAuthClient.isLoggedIn()
-
-  const localePath = useLocalePath()
-
-  if (hasTokens == null) {
-    return navigateTo(localePath('/auth/login'))
-  }
-
+  const loginRedirectPath = `${localePath}/auth/login`
   let userFound = true
 
   try {
+    const hasTokens = oAuthClient.isLoggedIn()
+
+    if (hasTokens == null) {
+      return navigateTo(loginRedirectPath)
+    }
+
     await authStore.getCurrentUser()
   }
   catch (error) {
@@ -23,6 +25,6 @@ export default defineNuxtRouteMiddleware(async () => {
   }
 
   if (!userFound) {
-    return navigateTo(localePath('/auth/login'))
+    return navigateTo(loginRedirectPath)
   }
 })
