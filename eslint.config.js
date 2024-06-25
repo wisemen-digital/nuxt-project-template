@@ -1,41 +1,16 @@
-import antfu from '@antfu/eslint-config'
+import WisemenEslintConfig from '@wisemen/eslint-config-vue'
 
-export default antfu(
+export default [
+  ...(await WisemenEslintConfig),
   {
-    vue: true,
-    typescript: true,
-    tailwindCSS: true,
-    // Formatters
-    formatters: {
-      html: true,
-      css: true,
-    },
-
-    // Rules
+    ignores: [
+      '**/layers/base/components/core/sonner/Toaster.vue',
+    ],
+  },
+  {
     rules: {
-      'node/prefer-global/process': 'off',
-    },
-
-    typescript: {
-      tsconfigPath: './tsconfig.json',
-    },
-
-    // Overrides
-    typescript: {
-      overrides: {
-        '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/no-unsafe-assignment': 'off',
-        '@typescript-eslint/no-unsafe-return': 'off',
-      },
-    },
-    vue: {
-      overrides: {
-        '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/no-unsafe-assignment': 'off',
-        '@typescript-eslint/no-unsafe-return': 'off',
-      },
+      'ts/explicit-function-return-type': 'off',
+      'vue/no-undef-components': 'off',
     },
   },
-)
+]
