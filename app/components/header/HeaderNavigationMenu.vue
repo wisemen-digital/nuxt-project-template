@@ -4,7 +4,7 @@ import {
   NavigationMenuRoot,
 } from 'radix-vue'
 
-import { NAVIGATION_LINKS } from '~/constants/header/navigationLinks.constant'
+import { HEADER_LINKS } from '~/constants/header/headerLinks.constant'
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import { NAVIGATION_LINKS } from '~/constants/header/navigationLinks.constant'
       class="flex items-center gap-3"
     >
       <template
-        v-for="menuItem in NAVIGATION_LINKS"
+        v-for="menuItem in HEADER_LINKS"
         :key="menuItem.title"
       >
         <HeaderNavigationMenuLink v-bind="menuItem">

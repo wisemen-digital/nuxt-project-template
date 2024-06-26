@@ -221,3 +221,7 @@
     @apply ring-2 ring-offset-2 ring-ring outline-none duration-200;
   }
 }
+
+body {
+  @apply bg-background overflow-x-hidden;
+}

@@ -11,12 +11,12 @@ defineProps<NavigationLink>()
     <NuxtLinkLocale
       :to="to"
       active-class="link-active"
-      class="group rounded px-1 text-subtext font-medium text-foreground focus-ring"
+      class="group rounded text-subtext font-medium text-foreground focus-ring"
     >
       <div>
         <slot />
       </div>
-      <div class="h-px w-full bg-transparent duration-200 group-[.link-active]:bg-primary" />
+      <div class="h-px w-full bg-transparent duration-200" />
     </NuxtLinkLocale>
   </NavigationMenuLink>
 </template>
