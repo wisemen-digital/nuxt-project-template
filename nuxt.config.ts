@@ -20,6 +20,12 @@ export default defineNuxtConfig({
       ],
     },
   },
+  components: [
+    {
+      pathPrefix: false,
+      path: '@/components',
+    },
+  ],
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,

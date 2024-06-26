@@ -1,4 +1,4 @@
 {
-  "test.login.forgot_password": "Wachtwoord vergeten?"
-
+  "test.login.forgot_password": "Wachtwoord vergeten?",
+  "shared.hello": "Hallo, {name}!"
 }
