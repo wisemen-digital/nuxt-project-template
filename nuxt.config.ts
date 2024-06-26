@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@@': path.resolve(__dirname, './disable'),
     '@auth': path.resolve(__dirname, './layers/auth'),
     '@base': path.resolve(__dirname, './layers/base'),
+    '@cart': path.resolve(__dirname, './layers/cart'),
     '~~': path.resolve(__dirname, './disable'),
   },
   app: {
