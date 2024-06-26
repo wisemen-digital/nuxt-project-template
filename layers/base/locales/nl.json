@@ -96,5 +96,6 @@
   "shared.settings": "Instellingen",
   "locale.fr": "Frans",
   "locale.nl": "Nederlands",
-  "locale.en": "Engels"
+  "locale.en": "Engels",
+  "empty": "-"
 }
