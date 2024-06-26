@@ -1,6 +1,8 @@
 import WisemenEslintConfig from '@wisemen/eslint-config-vue'
 
-export default [
+import withNuxt from './.nuxt/eslint.config.mjs'
+
+export default withNuxt(
   ...(await WisemenEslintConfig),
   {
     ignores: [
@@ -13,4 +15,4 @@ export default [
       'vue/no-undef-components': 'off',
     },
   },
-]
+)
