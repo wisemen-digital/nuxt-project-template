@@ -25,10 +25,10 @@ const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${COMPANY
       </a>
 
       <a
-        :href="`tel:${COMPANY_INFO.phonenumber}`"
+        :href="`tel:${COMPANY_INFO.phoneNumber}`"
         class="rounded text-foreground focus-ring hover:underline"
       >
-        {{ COMPANY_INFO.phonenumber }}
+        {{ COMPANY_INFO.phoneNumber }}
       </a>
     </div>
   </div>

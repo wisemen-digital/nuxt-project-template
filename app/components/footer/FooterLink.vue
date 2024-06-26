@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NavigationMenuLink } from 'radix-vue'
 
-import type { NavigationLink } from '~/constants/header/navigationLinks.constant'
+import type { NavigationLink } from '~/types/navigation/navigationLink.type'
 
 defineProps<NavigationLink>()
 </script>

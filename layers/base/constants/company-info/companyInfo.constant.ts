@@ -1,13 +1,13 @@
 export interface CompanyInfo {
   city: string
-  phonenumber: string
+  phoneNumber: string
   postalCode: string
   street: string
 }
 
 export const COMPANY_INFO = {
   city: 'TODO city',
-  phonenumber: 'TODO phonenumber',
+  phoneNumber: 'TODO phonenumber',
   postalCode: 'TODO postalcode',
   street: 'TODO street',
 } satisfies CompanyInfo
