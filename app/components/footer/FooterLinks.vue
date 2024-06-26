@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NAVIGATION_LINKS } from '~/constants/header/navigationLinks.constant'
+import { FOOTER_LINKS } from '~/constants/footer/footerLinks.constant'
 
 const { t } = useI18n()
 </script>
@@ -11,7 +11,7 @@ const { t } = useI18n()
     </p>
     <div class="flex flex-col">
       <FooterLink
-        v-for="menuItem in NAVIGATION_LINKS"
+        v-for="menuItem in FOOTER_LINKS"
         v-bind="menuItem"
         :key="menuItem.title"
       >
