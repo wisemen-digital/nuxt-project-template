@@ -13,7 +13,8 @@
     "lint": "eslint .",
     "postinstall": "nuxt prepare",
     "lint:fix": "eslint . --fix",
-    "clean": "rm -rf node_modules && rm -rf .output && rm -rf .nuxt"
+    "clean": "rm -rf node_modules && rm -rf .output && rm -rf .nuxt",
+    "precommit": "pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.18",

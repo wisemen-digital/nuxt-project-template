@@ -23,7 +23,6 @@ const svgComponent = shallowRef<Component | null>(null)
 async function setIcon(): Promise<void> {
   const resolvedComponent = await icons[props.icon]
 
-  // @ts-expect-error TODO fix this
   svgComponent.value = resolvedComponent.default
 }
 
