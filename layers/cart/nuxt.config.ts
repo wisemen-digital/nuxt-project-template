@@ -4,16 +4,16 @@ export default defineNuxtConfig({
   alias: {
     '@auth': path.resolve(__dirname, '../auth'),
     '@base': path.resolve(__dirname, '../base'),
-    '@cart': path.resolve(__dirname, './cart'),
+    '@cart': path.resolve(__dirname, './'),
   },
   components: [
     {
       pathPrefix: false,
-      path: '@auth/components',
+      path: '@cart/components',
     },
     {
       pathPrefix: false,
-      path: '@auth/views',
+      path: '@cart/views',
     },
   ],
 

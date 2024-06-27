@@ -1,3 +1,4 @@
+<!-- eslint-disable @intlify/vue-i18n/no-dynamic-keys -->
 <script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
@@ -7,8 +8,10 @@ const head = useLocaleHead({
   identifierAttribute: 'id',
 })
 
-// eslint-disable-next-line @intlify/vue-i18n/no-dynamic-keys
-const title = computed<string>(() => t('layouts.title', { title: t(route.meta.title as string ?? 'TBD') }))
+const title = computed<string>(() => t(
+  'layouts.title',
+  { title: route.meta.title != null ? t(route.meta.title as string) : 'TBD' },
+))
 </script>
 
 <template>

@@ -8,6 +8,7 @@ export const icons = {
   arrowUp: import('@base/icons/ArrowUpIcon.vue'),
   arrowUpDown: import('@base/icons/ArrowUpDownIcon.vue'),
   calendar: import('@base/icons/CalendarIcon.vue'),
+  cart: import('@base/icons/CartIcon.vue'),
   checkmark: import('@base/icons/CheckmarkIcon.vue'),
   checkmarkCircle: import('@base/icons/CheckmarkCircleIcon.vue'),
   chevronDown: import('@base/icons/ChevronDownIcon.vue'),
@@ -22,8 +23,10 @@ export const icons = {
   instagram: import('@base/icons/InstagramIcon.vue'),
   linkedIn: import('@base/icons/LinkedInIcon.vue'),
   minus: import('@base/icons/MinusIcon.vue'),
+  plus: import('@base/icons/PlusIcon.vue'),
   profile: import('@base/icons/ProfileIcon.vue'),
   search: import('@base/icons/SearchIcon.vue'),
+  trash: import('@base/icons/TrashIcon.vue'),
   twitter: import('@base/icons/TwitterIcon.vue'),
   warning: import('@base/icons/WarningIcon.vue'),
 } as const

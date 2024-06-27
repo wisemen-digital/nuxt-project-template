@@ -17,7 +17,6 @@ function onLogout() {
   <AppPopover
     v-if="currentUser"
     align="center"
-    hide-close-button
     hide-arrow
   >
     <AppIconButton
