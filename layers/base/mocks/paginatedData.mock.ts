@@ -1,6 +1,6 @@
 import type {
   PaginatedApiData,
-} from '@base/models/paginated-data/paginatedData.model'
+} from '@base/models/paginated-data/paginatedApiData.model'
 
 export function createPaginatedData<T>(data: T[]): PaginatedApiData<T> {
   return {
