@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@cart': path.resolve(__dirname, './layers/cart'),
     '~~': path.resolve(__dirname, './disable'),
   },
+
   app: {
     head: {
       title: 'Nuxt Project Template',
@@ -21,6 +22,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   components: [
     {
       pathPrefix: false,
@@ -31,10 +33,19 @@ export default defineNuxtConfig({
       path: '@/views',
     },
   ],
+
   devtools: { enabled: true },
+
+  eslint: {
+    config: {
+      standalone: false,
+    },
+  },
+
   future: {
     compatibilityVersion: 4,
   },
+
   i18n: {
     langDir: 'locales',
     locales: [
@@ -43,9 +54,13 @@ export default defineNuxtConfig({
       { iso: 'fr-FR', code: 'fr', file: 'fr.json' },
     ],
   },
+
   imports: {
     scan: false,
   },
+  modules: [
+    '@nuxt/eslint',
+  ],
   nitro: {
     compressPublicAssets: {
       brotli: true,
