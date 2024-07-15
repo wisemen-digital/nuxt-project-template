@@ -11,5 +11,5 @@
     "types": "@base/types/core",
     "utils": "@base/utils/core"
   },
-  "style": "wisemen"
+  "style": "wisemen-monorepo-test"
 }
