@@ -1,4 +1,4 @@
-import type { PaginatedData } from '@base/models/paginated-data/paginatedData.model'
+import type { PaginatedApiData } from '@base/models/paginated-data/paginatedApiData.model'
 import { orderKeys } from '@cart/api/order/keys/order.keys'
 import { OrderService } from '@cart/api/order/services/order.service'
 import type { OrderIndex } from '@cart/models/order/index/orderIndex.model'
@@ -8,8 +8,8 @@ export function useOrdersInfinite(search: Ref<null | string>) {
   const convertedSearch = computed<string>(() => search.value ?? '')
 
   return useInfiniteQuery({
-    getNextPageParam: (lastPage: PaginatedData<OrderIndex>, _, lastPageParams) => {
-      const perPage = lastPage.pagination.per_page
+    getNextPageParam: (lastPage: PaginatedApiData<OrderIndex>, _, lastPageParams) => {
+      const perPage = lastPage.pagination.perPage
       const total = lastPage.pagination.total
 
       if (perPage * lastPageParams < total) {

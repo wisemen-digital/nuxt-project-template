@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export function paginatedDataSchema<T extends z.ZodType>(
+export function paginatedApiDataSchema<T extends z.ZodType>(
   schema: T,
 ) {
   return z.object({
@@ -13,11 +13,11 @@ export function paginatedDataSchema<T extends z.ZodType>(
   })
 }
 
-export interface PaginatedData<TSchema> {
+export interface PaginatedApiData<TSchema> {
   data: TSchema[]
   pagination: {
     count: number
-    per_page: number
+    perPage: number
     total: number
   }
 }
