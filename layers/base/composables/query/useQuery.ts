@@ -10,20 +10,20 @@ import {
 } from '@tanstack/vue-query'
 
 export function useQuery<
-TQueryFnData,
-TError = DefaultError,
-TData = TQueryFnData,
-TQueryKey extends QueryKey = QueryKey,
+  TQueryFnData,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
 >(
   options: UseQueryOptions<
-  TQueryFnData,
-  TError,
-  TData,
-  TQueryFnData,
-  TQueryKey
-> & {
-  isClientOnly?: boolean
-},
+    TQueryFnData,
+    TError,
+    TData,
+    TQueryFnData,
+    TQueryKey
+  > & {
+    isClientOnly?: boolean
+  },
   queryClient?: QueryClient,
 ):
   | UseQueryDefinedReturnType<TData, TError>
