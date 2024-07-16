@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PostResponse } from '@payload/trpc/router/posts.router'
+import type { PostResponse } from '@payload/api/posts/models/post.model'
 import { ConfigProvider } from 'radix-vue'
 
 import { useTrpc } from '~/api/useTrpc'
