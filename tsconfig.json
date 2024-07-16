@@ -5,5 +5,11 @@
     "types": [
       "@types/dom-view-transitions"
     ]
-  }
+
+  },
+  "references": [
+    {
+      "path": "../payload/tsconfig.composite.json"
+    }
+  ]
 }

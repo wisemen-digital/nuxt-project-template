@@ -21,6 +21,7 @@
     "@nuxtjs/i18n": "8.3.1",
     "@pinia/nuxt": "^0.5.1",
     "@tanstack/vue-query": "^5.48.0",
+    "@trpc/client": "^10.45.2",
     "@wisemen/vue-core": "^0.0.78",
     "embla-carousel": "^8.1.5",
     "embla-carousel-vue": "^8.1.5",

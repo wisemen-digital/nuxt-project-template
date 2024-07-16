@@ -1,9 +1,23 @@
 <script setup lang="ts">
+import type { PostResponse } from '@payload/trpc/router/posts.router'
 import { ConfigProvider } from 'radix-vue'
+
+import { useTrpc } from '~/api/useTrpc'
 
 function useIdFunction() {
   return useId()
 }
+
+const trpc = useTrpc()
+const posts = ref<PostResponse[]>([])
+
+async function getData() {
+  const response = await trpc.posts.getPosts.query()
+
+  posts.value = response.docs
+}
+
+void getData()
 </script>
 
 <template>
@@ -13,6 +27,7 @@ function useIdFunction() {
         <ConfigProvider :use-id="useIdFunction">
           <NuxtLoadingIndicator color="#E94935" />
           <NuxtLayout>
+            {{ posts }}
             <NuxtPage />
           </NuxtLayout>
           <Teleport to="#teleports">
