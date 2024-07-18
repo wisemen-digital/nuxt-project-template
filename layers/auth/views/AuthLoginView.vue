@@ -84,7 +84,7 @@ onSubmitForm(async (data) => {
           :to="{
             name: 'auth-register',
           }"
-          class="text-primary text-right font-medium hover:underline focus:underline"
+          class="text-right font-medium text-primary hover:underline focus:underline"
         >
           <AppText
             variant="subtext"
