@@ -1,64 +1,74 @@
-interface OAuth2ClientOptions {
-  clientId: string
-  clientSecret: string
+import { useTrpc } from '~/api/useTrpc'
+
+interface ClientOptions {
   fetchInstance: typeof $fetch
-  scopes?: string[]
-  tokenEndpoint: string
 }
 
-export interface OAuth2ClientTokens {
-  access_token: string
-  expires_in: number
-  refresh_token: string
-  scope: string
-  token_type: string
-}
-
-export interface OAuth2ClientTokensWithExpiration extends OAuth2ClientTokens {
-  expires_at: number
+export interface ClientToken {
+  exp: number
+  token: string
 }
 
 export class TokenStore {
   private _promise: Promise<void> | null = null
-  private onTokensRefreshedCallback: ((tokens: OAuth2ClientTokensWithExpiration) => void) | null = null
+  private onTokensRefreshedCallback: ((tokens: ClientToken) => void) | null = null
 
-  constructor(private readonly options: OAuth2ClientOptions, private tokens: OAuth2ClientTokensWithExpiration) {
+  constructor(private options: ClientOptions, private tokens: ClientToken) {
   }
 
   private accessTokenExpired(): boolean {
-    return Date.now() >= this.tokens.expires_at
+    return Date.now() >= this.tokens.exp
   }
 
-  private refreshToken(): Promise<void> {
+  public async getAccessToken(): Promise<string> {
+    if (this.accessTokenExpired()) {
+      await this.refreshToken()
+    }
+
+    return this.tokens.token
+  }
+
+  public getTokens(): ClientToken {
+    return this.tokens
+  }
+
+  public onRefreshToken(callback: (tokens: ClientToken) => void): void {
+    this.onTokensRefreshedCallback = callback
+  }
+
+  public refreshToken(): Promise<void> {
     if (this._promise != null) {
       return this._promise
     }
 
     this._promise = new Promise((resolve, reject) => {
-      this.options.fetchInstance<any>(this.options.tokenEndpoint, {
-        body: new URLSearchParams({
-          client_id: this.options.clientId,
-          client_secret: this.options.clientSecret,
-          grant_type: 'refresh_token',
-          refresh_token: this.tokens.refresh_token,
-        }),
+      fetch('http://localhost:8000/api/users/refresh-token', {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': `Bearer ${this.tokens.token}`,
+          'Content-Type': 'application/json',
         },
         method: 'POST',
+      }).then(async (data) => {
+        if (!data.ok) {
+          reject(new Error('Failed to refresh access token'))
+        }
+
+        const response = await data.json() as {
+          exp: number
+          refreshedToken: string
+        }
+
+        this.tokens = {
+          exp: response.exp,
+          token: response.refreshedToken,
+        }
+
+        if (this.onTokensRefreshedCallback != null) {
+          this.onTokensRefreshedCallback(this.tokens)
+        }
+
+        resolve()
       })
-        .then((data) => {
-          this.tokens = {
-            ...data,
-            expires_at: Date.now() + data.expires_in * 1000,
-          }
-
-          if (this.onTokensRefreshedCallback != null) {
-            this.onTokensRefreshedCallback(this.tokens)
-          }
-
-          resolve()
-        })
         .catch(() => {
           reject(new Error('Failed to refresh access token'))
         })
@@ -69,68 +79,25 @@ export class TokenStore {
 
     return this._promise
   }
-
-  public async getAccessToken(): Promise<string> {
-    if (this.accessTokenExpired()) {
-      await this.refreshToken()
-    }
-
-    return this.tokens.access_token
-  }
-
-  public getTokens(): OAuth2ClientTokensWithExpiration {
-    return this.tokens
-  }
-
-  public onRefreshToken(callback: (tokens: OAuth2ClientTokensWithExpiration) => void): void {
-    this.onTokensRefreshedCallback = callback
-  }
 }
 
 export class OAuth2Client {
-  constructor(private readonly options: OAuth2ClientOptions) {}
+  constructor(private readonly options: ClientOptions) {}
 
   public async login(username: string, password: string): Promise<TokenStore> {
-    const data = await this.options.fetchInstance<any>(this.options.tokenEndpoint, {
-      body: new URLSearchParams({
-        client_id: this.options.clientId,
-        client_secret: this.options.clientSecret,
-        grant_type: 'password',
-        password,
-        username,
-      }),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'POST',
+    const trpc = useTrpc()
+    const data = await trpc.auth.login.mutate({
+      email: username,
+      password,
     })
+
+    if (data.exp == null || data.token == null) {
+      throw new Error('Invalid response')
+    }
 
     const store = new TokenStore(this.options, {
-      ...data,
-      expires_at: Date.now() + data.expires_in * 1000,
-    })
-
-    return store
-  }
-
-  public async loginTwoFactor(username: string, code: string): Promise<TokenStore> {
-    const data = await this.options.fetchInstance<any>(this.options.tokenEndpoint, {
-      body: new URLSearchParams({
-        client_id: this.options.clientId,
-        client_secret: this.options.clientSecret,
-        code,
-        grant_type: 'code',
-        username,
-      }),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'POST',
-    })
-
-    const store = new TokenStore(this.options, {
-      ...data,
-      expires_at: Date.now() + data.expires_in * 1000,
+      exp: data.exp,
+      token: data.token,
     })
 
     return store

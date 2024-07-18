@@ -1,7 +1,10 @@
 import type { FetchOptions } from 'ofetch'
 
-import type { OAuth2ClientTokensWithExpiration } from './oAuthClient.lib'
-import { OAuth2Client, TokenStore } from './oAuthClient.lib'
+import {
+  type ClientToken,
+  OAuth2Client,
+  TokenStore,
+} from './oAuthClient.lib'
 
 interface OAuth2VueClientOptions {
   clientId: string
@@ -16,18 +19,10 @@ export class OAuth2VueClient {
   private oAuthFactory: OAuth2Client
 
   constructor(private readonly options: OAuth2VueClientOptions) {
-    const {
-      clientId,
-      clientSecret,
-      fetchInstance,
-      tokenEndpoint,
-    } = options
+    const { fetchInstance } = options
 
     this.oAuthFactory = new OAuth2Client({
-      clientId,
-      clientSecret,
       fetchInstance,
-      tokenEndpoint,
     })
 
     const tokens = this.loadTokensFromCookie()
@@ -37,20 +32,12 @@ export class OAuth2VueClient {
     }
   }
 
-  private createClient(tokens: OAuth2ClientTokensWithExpiration): TokenStore {
-    const {
-      clientId,
-      clientSecret,
-      fetchInstance,
-      tokenEndpoint,
-    } = this.options
+  private createClient(tokens: ClientToken): TokenStore {
+    const { fetchInstance } = this.options
 
     const client = new TokenStore(
       {
-        clientId,
-        clientSecret,
         fetchInstance,
-        tokenEndpoint,
       },
       tokens,
     )
@@ -62,8 +49,8 @@ export class OAuth2VueClient {
     return client
   }
 
-  private loadTokensFromCookie(): OAuth2ClientTokensWithExpiration | null {
-    const tokensCookie = useCookie<OAuth2ClientTokensWithExpiration | null>('tokens')
+  private loadTokensFromCookie(): ClientToken | null {
+    const tokensCookie = useCookie<ClientToken | null>('tokens')
 
     return tokensCookie.value
   }
@@ -72,8 +59,8 @@ export class OAuth2VueClient {
     this.client = null
   }
 
-  private saveTokensToCookie(tokens: OAuth2ClientTokensWithExpiration | null): void {
-    const tokensCookie = useCookie<OAuth2ClientTokensWithExpiration | null>('tokens')
+  private saveTokensToCookie(tokens: ClientToken | null): void {
+    const tokensCookie = useCookie<ClientToken | null>('tokens')
 
     if (tokens === null) {
       tokensCookie.value = null
@@ -93,15 +80,6 @@ export class OAuth2VueClient {
 
   public async login(username: string, password: string): Promise<void> {
     const client = await this.oAuthFactory.login(username, password)
-
-    const tokens = client.getTokens()
-
-    this.saveTokensToCookie(tokens)
-    this.client = this.createClient(tokens)
-  }
-
-  public async loginTwoFactor(username: string, code: string): Promise<void> {
-    const client = await this.oAuthFactory.loginTwoFactor(username, code)
 
     const tokens = client.getTokens()
 

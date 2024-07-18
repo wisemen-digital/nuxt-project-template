@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     '@cart': path.resolve(__dirname, './layers/cart'),
     '@payload': path.resolve(__dirname, '../payload/src'),
     '@payload-types': path.resolve(__dirname, '../payload'),
-
     '~~': path.resolve(__dirname, './disable'),
   },
 

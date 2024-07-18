@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FOOTER_LINKS } from '~/constants/footer/footerLinks.constant'
+import { FOOTER_LINKS } from '@/constants/footer/footerLinks.constant'
 
 const { t } = useI18n()
 </script>

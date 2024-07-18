@@ -22,6 +22,10 @@ export const useAuthStore = defineStore('auth', () => {
     lastLoggedInUser.value = user
   }
 
+  function getToken(): null | string {
+    return oAuthClient.getClient()?.getTokens()?.token ?? null
+  }
+
   async function getCurrentUser(): Promise<CurrentUser> {
     if (currentUser.value != null) {
       return currentUser.value
@@ -55,14 +59,20 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  async function refreshToken() {
+    await oAuthClient.getClient()?.refreshToken()
+  }
+
   return {
     isAuthenticated,
     currentUser,
     getCurrentUser,
+    getToken,
     lastLoggedInUser,
     lastLoginAttemptEmail,
     login,
     logout,
+    refreshToken,
     setCurrentUser,
     setLastLoggedInUser,
     setLastLoginAttemptEmail,

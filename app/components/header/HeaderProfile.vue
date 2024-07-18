@@ -31,7 +31,7 @@ function onLogout() {
             class="font-medium"
             variant="subtitle"
           >
-            {{ t('shared.hello', { name: currentUser.firstName }) }}
+            {{ t('shared.hello', { name: currentUser.email }) }}
           </AppText>
 
           <PopoverClose :as-child="true">

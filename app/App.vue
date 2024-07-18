@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { PostResponse } from '@payload/models/posts/postResponse.model'
+import type { Post } from '@payload-types/payload-types'
 import { ConfigProvider } from 'radix-vue'
 
-import { useTrpc } from '~/api/useTrpc'
+import { useTrpc } from '@/api/useTrpc'
 
 function useIdFunction() {
   return useId()
 }
 
 const trpc = useTrpc()
-const posts = ref<PostResponse[]>([])
+const posts = ref<Post[]>([])
 
 async function getData() {
   const response = await trpc.posts.getPosts.query()

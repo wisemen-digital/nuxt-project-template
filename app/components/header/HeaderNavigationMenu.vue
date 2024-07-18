@@ -4,7 +4,7 @@ import {
   NavigationMenuRoot,
 } from 'radix-vue'
 
-import { HEADER_LINKS } from '~/constants/header/headerLinks.constant'
+import { HEADER_LINKS } from '@/constants/header/headerLinks.constant'
 </script>
 
 <template>

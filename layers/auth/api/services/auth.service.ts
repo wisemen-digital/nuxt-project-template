@@ -1,14 +1,12 @@
 import { AuthTransformer } from '@auth/models/auth.transformer'
 import type { CurrentUser } from '@auth/models/current-user/currentUser.model'
-import { currentUserDtoSchema } from '@auth/models/current-user/currentUserDto.model'
 import type { ForgotPasswordForm } from '@auth/models/forgot-password/forgotPasswordForm.model'
 import type { RegisterForm } from '@auth/models/register/registerForm.model'
 import type { ResetPasswordForm } from '@auth/models/reset-password/resetPasswordForm.model'
-import {
-  useApi,
-  useUnauthorizedApi,
-} from '@base/composables/api/useApi'
+import { useUnauthorizedApi } from '@base/composables/api/useApi'
 import { z } from 'zod'
+
+import { useTrpc } from '~/api/useTrpc'
 
 export class AuthService {
   static async forgotPassword(form: ForgotPasswordForm): Promise<void> {
@@ -22,12 +20,9 @@ export class AuthService {
   }
 
   static async getCurrentUser(): Promise<CurrentUser> {
-    const httpClient = useApi()
+    const trpc = useTrpc()
 
-    const data = await httpClient.get({
-      responseSchema: currentUserDtoSchema,
-      url: '/user',
-    })
+    const data = await trpc.auth.getCurrentUser.query()
 
     return AuthTransformer.toCurrentUser(data)
   }
