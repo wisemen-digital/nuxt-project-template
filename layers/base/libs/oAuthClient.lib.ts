@@ -1,4 +1,4 @@
-import { useTrpc } from '~/api/useTrpc'
+import { useTrpc } from '@auth/api/useTrpc'
 
 interface ClientOptions {
   fetchInstance: typeof $fetch
@@ -43,6 +43,7 @@ export class TokenStore {
 
     this._promise = new Promise((resolve, reject) => {
       fetch('http://localhost:8000/api/users/refresh-token', {
+        body: JSON.stringify({}),
         headers: {
           'Authorization': `Bearer ${this.tokens.token}`,
           'Content-Type': 'application/json',

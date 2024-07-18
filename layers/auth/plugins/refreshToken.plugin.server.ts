@@ -13,6 +13,7 @@ export default defineNuxtPlugin({
 
     try {
       await authStore.refreshToken()
+      await authStore.getCurrentUser()
     }
     catch (error) {
       console.error('Failed to refresh token', error)

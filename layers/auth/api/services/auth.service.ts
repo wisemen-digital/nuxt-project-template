@@ -1,3 +1,4 @@
+import { useTrpc } from '@auth/api/useTrpc'
 import { AuthTransformer } from '@auth/models/auth.transformer'
 import type { CurrentUser } from '@auth/models/current-user/currentUser.model'
 import type { ForgotPasswordForm } from '@auth/models/forgot-password/forgotPasswordForm.model'
@@ -5,8 +6,6 @@ import type { RegisterForm } from '@auth/models/register/registerForm.model'
 import type { ResetPasswordForm } from '@auth/models/reset-password/resetPasswordForm.model'
 import { useUnauthorizedApi } from '@base/composables/api/useApi'
 import { z } from 'zod'
-
-import { useTrpc } from '~/api/useTrpc'
 
 export class AuthService {
   static async forgotPassword(form: ForgotPasswordForm): Promise<void> {
