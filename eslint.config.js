@@ -7,6 +7,9 @@ export default withNuxt(
   {
     ignores: [
       '**/layers/base/components/core/sonner/Toaster.vue',
+      '.nuxt/*',
+      'node_modules/*',
+      '.vscode/*',
     ],
   },
   {
