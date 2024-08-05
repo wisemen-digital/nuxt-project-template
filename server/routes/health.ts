@@ -1,1 +1,3 @@
-export default defineEventHandler(() => 'OK')
+export default function (req, res) {
+    res.status(200).json({ message: 'OK' });
+  }
