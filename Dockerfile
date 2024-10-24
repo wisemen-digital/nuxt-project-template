@@ -5,7 +5,7 @@ ARG NODE_VERSION=lts
 # --- Stage 1: Build ---
 #
 
-FROM node:${NODE_VERSION} as build
+FROM node:${NODE_VERSION} AS build
 RUN corepack enable pnpm
 
 ARG BUILD_COMMIT
@@ -27,7 +27,7 @@ RUN pnpm run build
 # --- Stage 2: Run ---
 #
 
-FROM ghcr.io/wisemen-digital/nuxt-base:${NODE_VERSION} as final
+FROM ghcr.io/wisemen-digital/nuxt-base:${NODE_VERSION} AS final
 
 # Add application
 COPY --from=build --chown=nobody /app/.output /app/www/
